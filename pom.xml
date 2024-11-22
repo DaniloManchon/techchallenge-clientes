@@ -29,6 +29,7 @@
 	<properties>
 		<java.version>21</java.version>
 		<swagger.version>2.5.0</swagger.version>
+		<postgres.version>42.7.4</postgres.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -49,6 +50,17 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<!--JPA-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<!--Postgresql-->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${postgres.version}</version>
 		</dependency>
 
 		<!--Swagger-->

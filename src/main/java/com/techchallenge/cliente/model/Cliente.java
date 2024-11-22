@@ -1,20 +1,26 @@
 package com.techchallenge.cliente.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@Document
+@Entity
 public class Cliente {
 
     @JsonIgnore
     @Id
-    private String id;
+    private Integer id;
+    @Column
     private String cpf;
+    @Column
     private String nome;
+    @Column
     private String email;
+    @Column
     private boolean marketing;
 
     public Cliente(String cpf, String nome, String email, boolean marketing) {
