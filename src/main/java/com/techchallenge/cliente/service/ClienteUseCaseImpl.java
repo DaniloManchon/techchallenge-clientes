@@ -20,7 +20,7 @@ public class ClienteUseCaseImpl implements ClienteUseCase {
 
     public ResponseEntity<String> criarCliente(Cliente cliente) {
         try {
-            if (buscarCliente(cliente.getCpf()).getStatusCode().equals(HttpStatus.NOT_FOUND)) {
+            if (!buscarCliente(cliente.getCpf()).hasBody()) {
                 clienteRepository.save(
                         new Cliente(
                                 cliente.getCpf(),
@@ -47,7 +47,7 @@ public class ClienteUseCaseImpl implements ClienteUseCase {
             return new ResponseEntity<>(clienteData_.get(), HttpStatus.OK);
         } else {
             log.warn("cpf {} não encontrado", cpf);
-            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(null, HttpStatus.OK);
         }
     }
 
