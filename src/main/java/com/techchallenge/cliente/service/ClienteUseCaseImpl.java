@@ -55,7 +55,7 @@ public class ClienteUseCaseImpl implements ClienteUseCase {
         try {
             Cliente clienteData_ = buscarCliente(cpf).getBody();
             clienteRepository.delete(clienteData_);
-            log.info("cliente {} deletado", clienteData_.getId());
+            log.info("cliente {} deletado", clienteData_.getCpf());
             return new ResponseEntity<>("cliente apagado", HttpStatus.OK);
         } catch (Exception e) {
             log.error(e);
@@ -68,7 +68,7 @@ public class ClienteUseCaseImpl implements ClienteUseCase {
             Cliente clienteData_ = buscarCliente(cpf).getBody();
             clienteData_.setMarketing(marketing);
             clienteRepository.save(clienteData_);
-            log.info("conta {}: preferencias de marketing atualizadas", clienteData_.getId());
+            log.info("conta {}: preferencias de marketing atualizadas", clienteData_.getCpf());
             return new ResponseEntity<>(clienteData_, HttpStatus.OK);
         } catch (Exception e) {
             log.error(e);
@@ -81,7 +81,7 @@ public class ClienteUseCaseImpl implements ClienteUseCase {
             Cliente clienteData_ = buscarCliente(cpf).getBody();
             clienteData_.setEmail(email);
             clienteRepository.save(clienteData_);
-            log.info("conta {}: email atualizado atualizado", clienteData_.getId());
+            log.info("conta {}: email atualizado atualizado", clienteData_.getCpf());
             return new ResponseEntity<>(clienteData_, HttpStatus.OK);
         } catch (Exception e) {
             log.error(e);
@@ -94,7 +94,7 @@ public class ClienteUseCaseImpl implements ClienteUseCase {
             Cliente clienteData_ = buscarCliente(cpf).getBody();
             clienteData_.setNome(nome);
             clienteRepository.save(clienteData_);
-            log.info("conta {}: nome atualizado atualizado", clienteData_.getId());
+            log.info("conta {}: nome atualizado atualizado", clienteData_.getCpf());
             return new ResponseEntity<>(clienteData_, HttpStatus.OK);
         } catch (Exception e) {
             log.error(e);
