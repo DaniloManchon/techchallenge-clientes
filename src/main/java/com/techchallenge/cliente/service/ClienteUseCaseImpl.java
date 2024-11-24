@@ -46,7 +46,7 @@ public class ClienteUseCaseImpl implements ClienteUseCase {
         if (clienteData_.isPresent()) {
             return new ResponseEntity<>(clienteData_.get(), HttpStatus.OK);
         } else {
-            log.warn("cpf {} não encontrado", cpf);
+            log.debug("cpf {} não encontrado", cpf);
             return new ResponseEntity<>(null, HttpStatus.OK);
         }
     }

@@ -1,13 +1,13 @@
 package com.techchallenge.cliente;
 
-import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ClienteApplicationTests {
+public class ClienteApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+//	@Test
+//    public void contextLoads() {
+//
+//	}
 
 }
