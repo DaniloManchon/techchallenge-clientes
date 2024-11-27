@@ -17,7 +17,7 @@ import static org.mockito.Mockito.when;
 
 
 
-public class ClienteUseCaseImplTest {
+public class ClienteServiceTest {
 
     Cliente cliente = new Cliente("37451879895", "Danilo", "danilo@email.com", true);
 
@@ -25,7 +25,7 @@ public class ClienteUseCaseImplTest {
     ClienteRepository clienteRepository;
 
     @InjectMocks
-    ClienteUseCaseImpl clienteUseCaseImpl;
+    ClienteService clienteService;
 
     @BeforeEach
     public void setUp() {
@@ -43,7 +43,7 @@ public class ClienteUseCaseImplTest {
         // Configuracao mock save
         when(clienteRepository.save(clienteNovo)).thenReturn(clienteNovo);
         // Chamada ao metodo
-        ResponseEntity<String> response = clienteUseCaseImpl.criarCliente(clienteNovo);
+        ResponseEntity<String> response = clienteService.criarCliente(clienteNovo);
         // Verificação
         assertEquals(HttpStatus.CREATED, response.getStatusCode());
         assertNotEquals(HttpStatus.CONFLICT, response.getStatusCode());
@@ -62,7 +62,7 @@ public class ClienteUseCaseImplTest {
         when(clienteRepository.findByCpf(cpf)).thenReturn(Optional.of(clienteExistente));
 
         // Chamada ao método
-        ResponseEntity<Cliente> response = clienteUseCaseImpl.buscarCliente(cpf);
+        ResponseEntity<Cliente> response = clienteService.buscarCliente(cpf);
 
         // Verificação
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -82,7 +82,7 @@ public class ClienteUseCaseImplTest {
         // Configuração do mock para o método buscarCliente
         when(clienteRepository.findByCpf(cpf)).thenReturn(Optional.of(clienteExistente));
         // Chamada ao método
-        ResponseEntity<Cliente> response = clienteUseCaseImpl.atualizarMarketing(cpf, marketingNovo);
+        ResponseEntity<Cliente> response = clienteService.atualizarMarketing(cpf, marketingNovo);
 
         // Verificação
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -104,7 +104,7 @@ public class ClienteUseCaseImplTest {
         // Configuração do mock para o método buscarCliente
         when(clienteRepository.findByCpf(cpf)).thenReturn(Optional.of(clienteExistente));
         // Chamada ao método
-        ResponseEntity<Cliente> response = clienteUseCaseImpl.atualizarEmail(cpf, emailNovo);
+        ResponseEntity<Cliente> response = clienteService.atualizarEmail(cpf, emailNovo);
 
         // Verificação
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -125,7 +125,7 @@ public class ClienteUseCaseImplTest {
         // Configuração do mock para o método buscarCliente
         when(clienteRepository.findByCpf(cpf)).thenReturn(Optional.of(clienteExistente));
         // Chamada ao método
-        ResponseEntity<Cliente> response = clienteUseCaseImpl.atualizarNome(cpf, nomeNovo);
+        ResponseEntity<Cliente> response = clienteService.atualizarNome(cpf, nomeNovo);
 
         // Verificação
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -146,7 +146,7 @@ public class ClienteUseCaseImplTest {
         // Configuração do mock para o método buscarCliente
         when(clienteRepository.findByCpf(cpf)).thenReturn(Optional.of(clienteExistente));
         // Chamada ao método
-        ResponseEntity<String> response = clienteUseCaseImpl.apagarCliente(cpf);
+        ResponseEntity<String> response = clienteService.apagarCliente(cpf);
 
         // Verificação
         assertEquals(HttpStatus.OK, response.getStatusCode());

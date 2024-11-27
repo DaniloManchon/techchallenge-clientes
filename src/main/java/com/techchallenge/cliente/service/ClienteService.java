@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @Log4j2
 @Service
-public class ClienteUseCaseImpl implements ClienteUseCase {
+public class ClienteService implements ClienteUseCase {
 
     @Autowired
     private ClienteRepository clienteRepository;
