@@ -21,14 +21,7 @@ public class ClienteService implements ClienteUseCase {
     public ResponseEntity<String> criarCliente(Cliente cliente) {
         try {
             if (!buscarCliente(cliente.getCpf()).hasBody()) {
-                clienteRepository.save(
-                        new Cliente(
-                                cliente.getCpf(),
-                                cliente.getNome(),
-                                cliente.getEmail(),
-                                cliente.isMarketing()
-                        )
-                );
+                clienteRepository.save(cliente);
                 log.info("cliente {} cadastrado", cliente.getNome());
                 return new ResponseEntity<>(null, HttpStatus.CREATED);
             } else {
