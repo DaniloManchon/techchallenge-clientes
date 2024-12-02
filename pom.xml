@@ -16,6 +16,8 @@
 
 	<properties>
 		<java.version>21</java.version>
+		<maven.compiler.source>21</maven.compiler.source>
+		<maven.compiler.target>21</maven.compiler.target>
 		<swagger.version>2.5.0</swagger.version>
 		<postgres.version>42.7.4</postgres.version>
 		<junit.version>5.11.3</junit.version>
