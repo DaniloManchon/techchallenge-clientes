@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  test:
     name: Run Tests
     runs-on: ubuntu-latest
     steps:
@@ -49,6 +49,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
   deploy-helm:
+    needs: push-to-registry
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
