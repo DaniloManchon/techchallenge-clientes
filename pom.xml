@@ -15,7 +15,7 @@
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
 		<swagger.version>2.5.0</swagger.version>
 		<postgres.version>42.7.4</postgres.version>
 		<junit.version>5.11.3</junit.version>
