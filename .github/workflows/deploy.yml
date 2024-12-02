@@ -28,13 +28,13 @@ jobs:
         run: mvn -version
 
       - name: Build and Run Tests
-        run: mvn test
+        run: mvn test --output ./build/test-results/test.xml
 
       - name: Publish Test Report
         if: success() || failure()
         uses: mikepenz/action-junit-report@v5
         with:
-          report_paths: '**/build/test-results/test/TEST-*.xml'
+          report_paths: '**/build/test-results/test.xml'
 
   # push-to-registry:
   #   name: Push Docker Image
