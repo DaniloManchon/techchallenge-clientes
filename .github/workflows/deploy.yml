@@ -28,7 +28,7 @@ jobs:
         run: mvn -version
 
       - name: Build and Run Tests
-        run: mvn surfire:report
+        run: mvn clean test -fn surefire-report:report
 
       - name: Publish Test Report
         if: success() || failure()
