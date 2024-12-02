@@ -28,11 +28,13 @@ jobs:
         run: mvn -version
 
       - name: Build and Run Tests
-        run: mvn surefire-report:report
+        run: mvn test
 
       - name: Publish Test Report
         if: success() || failure()
-        uses: scacap/action-surefire-report@v1
+        uses: mikepenz/action-junit-report@v5
+        with:
+          report_paths: '**/build/test-results/test/TEST-*.xml'
 
   # push-to-registry:
   #   name: Push Docker Image
