@@ -16,9 +16,15 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        
       - name: Check version
         run: mvn -version
+
       - name: Build and Run Tests
+        uses: actions/setup-java@v4
+          with:
+            distribution: 'temurin' # See 'Supported distributions' for available options
+            java-version: '21'
         run: mvn test
 
       - name: Publish Test Report
